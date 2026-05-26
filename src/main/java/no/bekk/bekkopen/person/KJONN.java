@@ -25,7 +25,6 @@ package no.bekk.bekkopen.person;
  * THE SOFTWARE.
  * #L%
  */
-
 /**
  * @deprecated For removal - Gender will stop working after 1.1.2032
  * <a href="https://skatteetaten.github.io/folkeregisteret-api-dokumentasjon/nytt-fodselsnummer-fra-2032/">Nytt fødselsnummer fra 2032</a>
@@ -33,21 +32,17 @@ package no.bekk.bekkopen.person;
 @Deprecated
 public enum KJONN {
 
-	MANN, KVINNE, BEGGE;
+    MANN, KVINNE, BEGGE;
 
-	static boolean erKvinne(final KJONN kjonn) {
-		return kjonn.equals(KVINNE);
-	}
+    static boolean erKvinne(final KJONN kjonn) {
+        throw new UnsupportedOperationException("STUB: not implemented");
+    }
 
-	static boolean erBegge(final KJONN kjonn) {
-		return kjonn.equals(BEGGE);
-	}
+    static boolean erBegge(final KJONN kjonn) {
+        throw new UnsupportedOperationException("STUB: not implemented");
+    }
 
-	static KJONN byttKjonn(final KJONN kjonn) {
-		if (erKvinne(kjonn)) {
-			return MANN;
-		}
-		return KVINNE;
-	}
-
+    static KJONN byttKjonn(final KJONN kjonn) {
+        throw new UnsupportedOperationException("STUB: not implemented");
+    }
 }

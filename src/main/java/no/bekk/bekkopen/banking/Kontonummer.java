@@ -25,7 +25,6 @@ package no.bekk.bekkopen.banking;
  * THE SOFTWARE.
  * #L%
  */
-
 import no.bekk.bekkopen.common.Constants;
 import no.bekk.bekkopen.common.StringNumber;
 
@@ -36,55 +35,50 @@ import no.bekk.bekkopen.common.StringNumber;
  * digit in the final group of 5 digits is a checksum digit.
  */
 public class Kontonummer extends StringNumber {
-	
+
     Kontonummer(String kontonummer) {
         super(kontonummer);
     }
 
     /**
      * The four first digit of the Kontonummer is known as the Registernummer.
-     * 
+     *
      * @return The Registernummer
      */
     public String getRegisternummer() {
-        return getValue().substring(0, 4);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
      * The two digits after the Registernummer is often used to identify an
      * account type.
-     * 
+     *
      * @return The Account Type
      */
     public String getAccountType() {
-        return getValue().substring(4, 6);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
      * The 6 digits after the Registernummer are known as the Account - Konto.
-     * 
+     *
      * @return The Konto
      */
     public String getKonto() {
-        return getValue().substring(4, 10);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
      * Returns the Kontonummer as a String, formatted with '.''s separating the
      * Registernummer, AccountType and end part.
-     * 
+     *
      * @return The formatted Kontonummer
      */
     public String getGroupedValue() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getRegisternummer()).append(Constants.DOT);
-        sb.append(getAccountType()).append(Constants.DOT);
-        sb.append(getPartAfterAccountType());
-        return sb.toString();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     private String getPartAfterAccountType() {
         return getValue().substring(6);
     }
-
 }

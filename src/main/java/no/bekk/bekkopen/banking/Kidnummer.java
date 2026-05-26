@@ -25,11 +25,8 @@ package no.bekk.bekkopen.banking;
  * THE SOFTWARE.
  * #L%
  */
-
 import no.bekk.bekkopen.common.StringNumber;
-
 import java.math.BigInteger;
-
 import static no.bekk.bekkopen.common.Checksums.calculateMod10CheckSum;
 import static no.bekk.bekkopen.common.Checksums.calculateMod11CheckSumAllowDash;
 import static no.bekk.bekkopen.common.Checksums.getMod10Weights;
@@ -52,7 +49,7 @@ public class Kidnummer extends StringNumber {
      * @return Kidnummer
      */
     public static Kidnummer mod10Kid(String baseNumber) {
-        return Kidnummer.mod10Kid(baseNumber, baseNumber.length()+1);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -63,11 +60,7 @@ public class Kidnummer extends StringNumber {
      * @return Kidnummer
      */
     public static Kidnummer mod10Kid(String baseNumber, int targetLength) {
-        if (baseNumber.length() >= targetLength)
-            throw new IllegalArgumentException("baseNumber too long");
-        String padded = String.format("%0" + (targetLength-1) + "d", new BigInteger(baseNumber));
-        Kidnummer k = new Kidnummer(padded + "0");
-        return KidnummerValidator.getKidnummer(padded + calculateMod10CheckSum(getMod10Weights(k), k));
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -79,7 +72,7 @@ public class Kidnummer extends StringNumber {
      * @return Kidnummer
      */
     public static Kidnummer mod11Kid(String baseNumber) {
-        return Kidnummer.mod11Kid(baseNumber, baseNumber.length()+1);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -104,10 +97,6 @@ public class Kidnummer extends StringNumber {
      * @return Kidnummer
      */
     public static Kidnummer mod11Kid(String baseNumber, int targetLength) {
-        if (baseNumber.length() >= targetLength)
-            throw new IllegalArgumentException("baseNumber too long");
-        String padded = String.format("%0" + (targetLength-1) + "d", new BigInteger(baseNumber));
-        Kidnummer k = new Kidnummer(padded + "0");
-        return KidnummerValidator.getKidnummer(padded + calculateMod11CheckSumAllowDash(getMod11Weights(k), k));
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

@@ -25,7 +25,6 @@ package no.bekk.bekkopen.person;
  * THE SOFTWARE.
  * #L%
  */
-
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -33,54 +32,55 @@ import java.util.Date;
 
 public class Person {
 
-	private final static DateFormat fDatoFormat = new SimpleDateFormat("ddMMyy");
-	private final Navn navn;
-	private final Fodselsnummer fodselsnummer;
+    private final static DateFormat fDatoFormat = new SimpleDateFormat("ddMMyy");
 
-	public Person(Navn navn, Fodselsnummer fodselsnummer) {
-		super();
-		this.navn = navn;
-		this.fodselsnummer = fodselsnummer;
-	}
+    private final Navn navn;
 
-	public Navn getNavn() {
-		return this.navn;
-	}
+    private final Fodselsnummer fodselsnummer;
 
-	public String getFornavn() {
-		return this.navn.getFornavn();
-	}
+    public Person(Navn navn, Fodselsnummer fodselsnummer) {
+        super();
+        this.navn = navn;
+        this.fodselsnummer = fodselsnummer;
+    }
 
-	public String getMellomnavn() {
-		return this.navn.getMellomnavn();
-	}
+    public Navn getNavn() {
+        throw new UnsupportedOperationException("STUB: not implemented");
+    }
 
-	public String getEtternavn() {
-		return this.navn.getEtternavn();
-	}
+    public String getFornavn() {
+        throw new UnsupportedOperationException("STUB: not implemented");
+    }
 
-	public Fodselsnummer getFodselsnummer() {
-		return this.fodselsnummer;
-	}
+    public String getMellomnavn() {
+        throw new UnsupportedOperationException("STUB: not implemented");
+    }
 
-	public String getFodselsdatoAsString() {
-		return this.fodselsnummer.getDateOfBirth();
-	}
+    public String getEtternavn() {
+        throw new UnsupportedOperationException("STUB: not implemented");
+    }
 
-	public Date getFodselsdato() throws ParseException {
-      return fDatoFormat.parse(this.fodselsnummer.getDateOfBirth());
-	}
+    public Fodselsnummer getFodselsnummer() {
+        throw new UnsupportedOperationException("STUB: not implemented");
+    }
 
-	public String getPersonnummer() {
-		return this.fodselsnummer.getPersonnummer();
-	}
+    public String getFodselsdatoAsString() {
+        throw new UnsupportedOperationException("STUB: not implemented");
+    }
 
-	public boolean erKvinne() {
-		return fodselsnummer.isFemale();
-	}
+    public Date getFodselsdato() throws ParseException {
+        throw new UnsupportedOperationException("STUB: not implemented");
+    }
 
-	public boolean erMann() {
-		return fodselsnummer.isMale();
-	}
+    public String getPersonnummer() {
+        throw new UnsupportedOperationException("STUB: not implemented");
+    }
 
+    public boolean erKvinne() {
+        throw new UnsupportedOperationException("STUB: not implemented");
+    }
+
+    public boolean erMann() {
+        throw new UnsupportedOperationException("STUB: not implemented");
+    }
 }

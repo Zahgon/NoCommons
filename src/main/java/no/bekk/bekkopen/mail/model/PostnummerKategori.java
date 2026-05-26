@@ -25,7 +25,6 @@ package no.bekk.bekkopen.mail.model;
  * THE SOFTWARE.
  * #L%
  */
-
 /**
  * This class represent a Norwegian postal area category.
  *
@@ -39,11 +38,8 @@ package no.bekk.bekkopen.mail.model;
  * S = Servicepostnummer (disse postnumrene er ikke i bruk til postadresser)
  */
 public enum PostnummerKategori {
-    B("Både gateadresser og postbokser"),
-    F("Flere bruksområder (felles)"),
-    G("Gateadresser (og stedsadresser)"),
-    P("Postbokser"),
-    S("Servicepostnummer");
+
+    B("Både gateadresser og postbokser"), F("Flere bruksområder (felles)"), G("Gateadresser (og stedsadresser)"), P("Postbokser"), S("Servicepostnummer");
 
     private String beskrivelse;
 
@@ -55,11 +51,6 @@ public enum PostnummerKategori {
     }
 
     public static PostnummerKategori fromString(String postnummerKategori) {
-        for (PostnummerKategori p : PostnummerKategori.values()) {
-            if (p.name().equals(postnummerKategori)) {
-                return p;
-            }
-        }
-        return null;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

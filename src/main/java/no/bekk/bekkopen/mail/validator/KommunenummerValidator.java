@@ -25,7 +25,6 @@ package no.bekk.bekkopen.mail.validator;
  * THE SOFTWARE.
  * #L%
  */
-
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 import no.bekk.bekkopen.mail.MailValidator;
@@ -36,14 +35,11 @@ import no.bekk.bekkopen.mail.annotation.Kommunenummer;
  */
 public class KommunenummerValidator implements ConstraintValidator<Kommunenummer, String> {
 
-    public void initialize(Kommunenummer constraintAnnotation) {}
-
-    public boolean isValid(String kommunenummer, ConstraintValidatorContext context) {
-        if (kommunenummer == null) {
-            return true;
-        }
-
-        return MailValidator.isValidKommunenummer(kommunenummer);
+    public void initialize(Kommunenummer constraintAnnotation) {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
+    public boolean isValid(String kommunenummer, ConstraintValidatorContext context) {
+        throw new UnsupportedOperationException("STUB: not implemented");
+    }
 }

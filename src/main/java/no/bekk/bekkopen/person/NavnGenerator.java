@@ -25,7 +25,6 @@ package no.bekk.bekkopen.person;
  * THE SOFTWARE.
  * #L%
  */
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -50,106 +49,106 @@ import java.util.Random;
  * <li><a href="http://www.ssb.no/navn/etternavn-200.html">Statistisk
  * Sentralbyrås liste over de 3229 mest brukte etternavn i 2009</a></li>
  * </ul>
- *
  */
-
 public class NavnGenerator {
 
-	private final static int caAntallKvinnerSomHarMellomnavnIProsent = 22;
-	private final static int caAntallMennSomHarMellomnavnIProsent = 14;
+    private final static int caAntallKvinnerSomHarMellomnavnIProsent = 22;
 
-	private final static List<String> kvinnenavn = csv2List(NavnGenerator.class
-			.getResourceAsStream("/fornavn_kvinner.csv"));
-	private final static List<String> mannsnavn = csv2List(NavnGenerator.class.getResourceAsStream("/fornavn_menn.csv"));
-	private final static List<String> etternavn = csv2List(NavnGenerator.class.getResourceAsStream("/etternavn.csv"));
+    private final static int caAntallMennSomHarMellomnavnIProsent = 14;
 
-	private NavnGenerator() {
-		super();
-	}
+    private final static List<String> kvinnenavn = csv2List(NavnGenerator.class.getResourceAsStream("/fornavn_kvinner.csv"));
 
-	public static Navn genererMannsnavn() {
-		return genererNavn(1, KJONN.MANN).get(0);
-	}
+    private final static List<String> mannsnavn = csv2List(NavnGenerator.class.getResourceAsStream("/fornavn_menn.csv"));
 
-	public static Navn genererKvinnenavn() {
-		return genererNavn(1, KJONN.KVINNE).get(0);
-	}
+    private final static List<String> etternavn = csv2List(NavnGenerator.class.getResourceAsStream("/etternavn.csv"));
 
-	public static List<Navn> genererMannsnavn(int antall) {
-		return genererNavn(antall, KJONN.MANN);
-	}
+    private NavnGenerator() {
+        super();
+    }
 
-	public static List<Navn> genererKvinnenavn(int antall) {
-		return genererNavn(antall, KJONN.KVINNE);
-	}
+    public static Navn genererMannsnavn() {
+        throw new UnsupportedOperationException("STUB: not implemented");
+    }
 
-	public static List<Navn> genererNavn(int antall) {
-		return genererNavn(antall, KJONN.BEGGE);
-	}
+    public static Navn genererKvinnenavn() {
+        throw new UnsupportedOperationException("STUB: not implemented");
+    }
 
-	private static List<Navn> genererNavn(final int antall, final KJONN kjonn) {
-		List<Navn> navneliste = new ArrayList<>(antall);
-		KJONN kjonnSwitch = kjonn;
-		while (navneliste.size() < antall) {
-			if (KJONN.erBegge(kjonn)) {
-				kjonnSwitch = KJONN.byttKjonn(kjonnSwitch);
-			}
-			Navn navn = genererNavn(kjonnSwitch);
-			if (!navneliste.contains(navn)) {
-				navneliste.add(navn);
-			}
-		}
-		return navneliste;
-	}
+    public static List<Navn> genererMannsnavn(int antall) {
+        throw new UnsupportedOperationException("STUB: not implemented");
+    }
 
-	private static Navn genererNavn(final KJONN kjonn) {
-		String fnavn, mnavn = null, enavn;
-		int indexF;
-		if (KJONN.erKvinne(kjonn)) {
-			indexF = new Random().nextInt(kvinnenavn.size() - 1);
-			fnavn = kvinnenavn.get(indexF);
-		} else {
-			indexF = new Random().nextInt(mannsnavn.size() - 1);
-			fnavn = mannsnavn.get(indexF);
-		}
-		if (genererMellomnavn(kjonn)) {
-			int indexM = new Random().nextInt(etternavn.size() - 1);
-			mnavn = etternavn.get(indexM);
-		}
-		int indexE = new Random().nextInt(etternavn.size() - 1);
-		enavn = etternavn.get(indexE);
-		return new Navn(fnavn, mnavn, enavn);
-	}
+    public static List<Navn> genererKvinnenavn(int antall) {
+        throw new UnsupportedOperationException("STUB: not implemented");
+    }
 
-	private static boolean genererMellomnavn(KJONN kjonn) {
-		if (KJONN.erKvinne(kjonn)) {
-			if (new Random().nextInt(100) <= caAntallKvinnerSomHarMellomnavnIProsent) {
-				return true;
-			}
-		} else {
-			if (new Random().nextInt(100) <= caAntallMennSomHarMellomnavnIProsent) {
-				return true;
-			}
-		}
-		return false;
-	}
+    public static List<Navn> genererNavn(int antall) {
+        throw new UnsupportedOperationException("STUB: not implemented");
+    }
 
-	private static List<String> csv2List(InputStream is) {
-		InputStreamReader isr = new InputStreamReader(is, StandardCharsets.UTF_8);
-		BufferedReader br = new BufferedReader(isr);
-		List<String> vList = new ArrayList<>();
-		String[] array;
-		String line;
-		try {
-			while ((line = br.readLine()) != null) {
-				array = line.split("[ ]*,[ ]*");
-            Collections.addAll(vList, array);
-			}
-			br.close();
-			isr.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		return vList;
-	}
+    private static List<Navn> genererNavn(final int antall, final KJONN kjonn) {
+        List<Navn> navneliste = new ArrayList<>(antall);
+        KJONN kjonnSwitch = kjonn;
+        while (navneliste.size() < antall) {
+            if (KJONN.erBegge(kjonn)) {
+                kjonnSwitch = KJONN.byttKjonn(kjonnSwitch);
+            }
+            Navn navn = genererNavn(kjonnSwitch);
+            if (!navneliste.contains(navn)) {
+                navneliste.add(navn);
+            }
+        }
+        return navneliste;
+    }
+
+    private static Navn genererNavn(final KJONN kjonn) {
+        String fnavn, mnavn = null, enavn;
+        int indexF;
+        if (KJONN.erKvinne(kjonn)) {
+            indexF = new Random().nextInt(kvinnenavn.size() - 1);
+            fnavn = kvinnenavn.get(indexF);
+        } else {
+            indexF = new Random().nextInt(mannsnavn.size() - 1);
+            fnavn = mannsnavn.get(indexF);
+        }
+        if (genererMellomnavn(kjonn)) {
+            int indexM = new Random().nextInt(etternavn.size() - 1);
+            mnavn = etternavn.get(indexM);
+        }
+        int indexE = new Random().nextInt(etternavn.size() - 1);
+        enavn = etternavn.get(indexE);
+        return new Navn(fnavn, mnavn, enavn);
+    }
+
+    private static boolean genererMellomnavn(KJONN kjonn) {
+        if (KJONN.erKvinne(kjonn)) {
+            if (new Random().nextInt(100) <= caAntallKvinnerSomHarMellomnavnIProsent) {
+                return true;
+            }
+        } else {
+            if (new Random().nextInt(100) <= caAntallMennSomHarMellomnavnIProsent) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private static List<String> csv2List(InputStream is) {
+        InputStreamReader isr = new InputStreamReader(is, StandardCharsets.UTF_8);
+        BufferedReader br = new BufferedReader(isr);
+        List<String> vList = new ArrayList<>();
+        String[] array;
+        String line;
+        try {
+            while ((line = br.readLine()) != null) {
+                array = line.split("[ ]*,[ ]*");
+                Collections.addAll(vList, array);
+            }
+            br.close();
+            isr.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return vList;
+    }
 }

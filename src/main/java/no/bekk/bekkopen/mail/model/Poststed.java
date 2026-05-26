@@ -25,11 +25,11 @@ package no.bekk.bekkopen.mail.model;
  * THE SOFTWARE.
  * #L%
  */
-
 /**
  * This class represent a Norwegian postal area - a Poststed.
  */
 public class Poststed {
+
     private String poststed;
 
     public Poststed(String poststed) {
@@ -40,41 +40,21 @@ public class Poststed {
     }
 
     public String getValue() {
-        return this.poststed;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String toString() {
-        return getValue();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + ((poststed == null) ? 0 : poststed.hashCode());
-        return result;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Poststed other = (Poststed) obj;
-        if (poststed == null) {
-            if (other.poststed != null) {
-                return false;
-            }
-        } else if (!poststed.equals(other.poststed)) {
-            return false;
-        }
-        return true;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

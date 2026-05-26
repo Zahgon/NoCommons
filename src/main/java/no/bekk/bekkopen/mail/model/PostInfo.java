@@ -25,7 +25,6 @@ package no.bekk.bekkopen.mail.model;
  * THE SOFTWARE.
  * #L%
  */
-
 /**
  * Bruker postnummer hentet fra: https://www.bring.no/tjenester/adressetjenester/postnummer
  *
@@ -33,14 +32,18 @@ package no.bekk.bekkopen.mail.model;
  * Tilgjengelig i JSON-format her:  https://gist.github.com/storbukas/b5f86dca64b8bf2a46e5bb108c695ec1
  */
 public class PostInfo {
+
     private Postnummer postnummer;
+
     private Poststed poststed;
+
     private PostnummerKategori postnummerKategori;
+
     private Kommunenummer kommunenummer;
+
     private Kommunenavn kommunenavn;
 
-    public PostInfo(Postnummer postnummer, Poststed poststed,
-        Kommunenummer kommunenummer, Kommunenavn kommunenavn, PostnummerKategori postnummerKategori) {
+    public PostInfo(Postnummer postnummer, Poststed poststed, Kommunenummer kommunenummer, Kommunenavn kommunenavn, PostnummerKategori postnummerKategori) {
         this.postnummer = postnummer;
         this.poststed = poststed;
         this.kommunenummer = kommunenummer;
@@ -49,22 +52,22 @@ public class PostInfo {
     }
 
     public Postnummer getPostnummer() {
-        return postnummer;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Poststed getPoststed() {
-        return poststed;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public PostnummerKategori getPostnummerKategori() {
-        return postnummerKategori;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Kommunenummer getKommunenummer() {
-        return kommunenummer;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Kommunenavn getKommunenavn() {
-        return kommunenavn;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

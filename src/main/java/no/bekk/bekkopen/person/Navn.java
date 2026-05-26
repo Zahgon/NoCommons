@@ -25,7 +25,6 @@ package no.bekk.bekkopen.person;
  * THE SOFTWARE.
  * #L%
  */
-
 /**
  * This class represents a name according to Norwegian rules. A legal Norwegian
  * name consist of at least a Fornavn and an Etternavn. Etternavn can also
@@ -33,62 +32,57 @@ package no.bekk.bekkopen.person;
  */
 public class Navn {
 
-	private final String fornavn;
-	private String mellomnavn;
-	private final String etternavn;
+    private final String fornavn;
 
-	Navn(final String fornavn, final String mellomnavn, final String etternavn) {
-		this(fornavn, etternavn);
-		if (null != mellomnavn) {
-			this.mellomnavn = korrigerCasing(mellomnavn);
-		}
+    private String mellomnavn;
 
-	}
+    private final String etternavn;
 
-	public Navn(final String fornavn, final String etternavn) {
-		if (null == fornavn || null == etternavn) {
-			throw new IllegalArgumentException("fornavn or etternavn can not be null: " + "fornavn=" + fornavn
-					+ ",etternavn=" + etternavn);
-		}
-		this.fornavn = korrigerCasing(fornavn);
-		this.etternavn = korrigerCasing(etternavn);
-	}
+    Navn(final String fornavn, final String mellomnavn, final String etternavn) {
+        this(fornavn, etternavn);
+        if (null != mellomnavn) {
+            this.mellomnavn = korrigerCasing(mellomnavn);
+        }
+    }
 
-	public String getFornavn() {
-		return this.fornavn;
-	}
+    public Navn(final String fornavn, final String etternavn) {
+        if (null == fornavn || null == etternavn) {
+            throw new IllegalArgumentException("fornavn or etternavn can not be null: " + "fornavn=" + fornavn + ",etternavn=" + etternavn);
+        }
+        this.fornavn = korrigerCasing(fornavn);
+        this.etternavn = korrigerCasing(etternavn);
+    }
 
-	public String getMellomnavn() {
-		return this.mellomnavn;
-	}
+    public String getFornavn() {
+        throw new UnsupportedOperationException("STUB: not implemented");
+    }
 
-	public String getEtternavn() {
-		return this.etternavn;
-	}
+    public String getMellomnavn() {
+        throw new UnsupportedOperationException("STUB: not implemented");
+    }
 
-	public String getNavn() {
-		StringBuilder navn = new StringBuilder(fornavn);
-		if (null != mellomnavn) {
-			navn.append(" ").append(mellomnavn);
-		}
-		navn.append(" ").append(etternavn);
-		return navn.toString();
-	}
+    public String getEtternavn() {
+        throw new UnsupportedOperationException("STUB: not implemented");
+    }
 
-	@Override
-	public String toString() {
-		return getNavn();
-	}
+    public String getNavn() {
+        throw new UnsupportedOperationException("STUB: not implemented");
+    }
 
-	private String korrigerCasing(final String navn) {
-		if (navn.length() == 0) {
-			return "";
-		}
-		if (navn.length() == 1) {
-			return navn.toUpperCase();
-		}
-		StringBuilder korrigetNavn = new StringBuilder(navn.substring(0, 1).toUpperCase());
-		korrigetNavn.append(navn.substring(1, navn.length()).toLowerCase());
-		return korrigetNavn.toString();
-	}
+    @Override
+    public String toString() {
+        throw new UnsupportedOperationException("STUB: not implemented");
+    }
+
+    private String korrigerCasing(final String navn) {
+        if (navn.length() == 0) {
+            return "";
+        }
+        if (navn.length() == 1) {
+            return navn.toUpperCase();
+        }
+        StringBuilder korrigetNavn = new StringBuilder(navn.substring(0, 1).toUpperCase());
+        korrigetNavn.append(navn.substring(1, navn.length()).toLowerCase());
+        return korrigetNavn.toString();
+    }
 }

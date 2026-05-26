@@ -25,7 +25,6 @@ package no.bekk.bekkopen.mail;
  * THE SOFTWARE.
  * #L%
  */
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -34,7 +33,6 @@ import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.StringTokenizer;
-
 import no.bekk.bekkopen.mail.model.Kommunenavn;
 import no.bekk.bekkopen.mail.model.Kommunenummer;
 import no.bekk.bekkopen.mail.model.PostInfo;
@@ -54,59 +52,10 @@ public class MailDataLoader {
     }
 
     public static void loadFromInputStream(InputStream is) {
-        if (is == null) {
-            throw new IllegalArgumentException();
-        }
-
-        Map<Postnummer, PostInfo> postInfo = new HashMap<>();
-
-        try (
-            InputStreamReader isr = new InputStreamReader(is, StandardCharsets.UTF_8);
-            BufferedReader br = new BufferedReader(isr);
-        ) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                StringTokenizer st = new StringTokenizer(line, ",", false);
-
-                Postnummer postnummer = MailValidator.getPostnummer(st.nextToken());
-                Poststed poststed = new Poststed(st.nextToken());
-                Kommunenummer kommunenummer = MailValidator.getKommunenummer(st.nextToken());
-                Kommunenavn kommunenavn = new Kommunenavn(st.nextToken());
-                PostnummerKategori postnummerKategori = MailValidator.getPostnummerKategori(st.nextToken());
-
-                // add to postInfo
-                postInfo.put(
-                    postnummer,
-                    new PostInfo(
-                        postnummer,
-                        poststed,
-                        kommunenummer,
-                        kommunenavn,
-                        postnummerKategori
-                    )
-                );
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        MailValidator.setPostInfo(postInfo);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public static boolean loadFromClassPath() {
-        boolean success = false;
-
-        try (InputStream is = MailDataLoader.class.getResourceAsStream("/postnummer.csv")) {
-            loadFromInputStream(is);
-            success = true;
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (NullPointerException e) {
-            e.printStackTrace();
-        } catch (IllegalArgumentException e) {
-            e.printStackTrace();
-        }
-
-        return success;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

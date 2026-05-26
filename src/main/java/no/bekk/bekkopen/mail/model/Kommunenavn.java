@@ -25,11 +25,11 @@ package no.bekk.bekkopen.mail.model;
  * THE SOFTWARE.
  * #L%
  */
-
 /**
  * This class represent a Norwegian municipality name - a Kommunenavn.
  */
 public class Kommunenavn {
+
     private String kommunenavn;
 
     public Kommunenavn(String kommunenavn) {
@@ -40,41 +40,21 @@ public class Kommunenavn {
     }
 
     public String getValue() {
-        return this.kommunenavn;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String toString() {
-        return getValue();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + ((kommunenavn == null) ? 0 : kommunenavn.hashCode());
-        return result;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Kommunenavn other = (Kommunenavn) obj;
-        if (kommunenavn == null) {
-            if (other.kommunenavn != null) {
-                return false;
-            }
-        } else if (!kommunenavn.equals(other.kommunenavn)) {
-            return false;
-        }
-        return true;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

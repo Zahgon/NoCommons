@@ -25,12 +25,9 @@ package no.bekk.bekkopen.banking;
  * THE SOFTWARE.
  * #L%
  */
-
 import no.bekk.bekkopen.common.StringNumberValidator;
-
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
-
 import static no.bekk.bekkopen.common.Checksums.ERROR_INVALID_CHECKSUM;
 import static no.bekk.bekkopen.common.Checksums.calculateMod11CheckSum;
 import static no.bekk.bekkopen.common.Checksums.getMod11Weights;
@@ -42,9 +39,13 @@ import static no.bekk.bekkopen.common.Checksums.getMod11Weights;
 public class KontonummerValidator extends StringNumberValidator implements ConstraintValidator<no.bekk.bekkopen.banking.annotation.Kontonummer, String> {
 
     private static final int LENGTH = 11;
+
     protected static final int ACCOUNTTYPE_NUM_DIGITS = 2;
+
     protected static final int REGISTERNUMMER_NUM_DIGITS = 4;
+
     private static final String NOT_ALLOWED_AS_LEADING = "0000";
+
     public static final String ERROR_LEADING_ZEROS = "Leading zeros too many : ";
 
     private KontonummerValidator() {
@@ -58,12 +59,7 @@ public class KontonummerValidator extends StringNumberValidator implements Const
      * @return true or false
      */
     public static boolean isValid(String kontonummer) {
-        try {
-            KontonummerValidator.getKontonummer(kontonummer);
-            return true;
-        } catch (IllegalArgumentException e) {
-            return false;
-        }
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -74,9 +70,7 @@ public class KontonummerValidator extends StringNumberValidator implements Const
      * @throws IllegalArgumentException thrown if String contains an invalid Kontonummer
      */
     public static Kontonummer getKontonummer(String kontonummer) throws IllegalArgumentException {
-        validateSyntax(kontonummer);
-        validateChecksum(kontonummer);
-        return new Kontonummer(kontonummer);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -90,48 +84,30 @@ public class KontonummerValidator extends StringNumberValidator implements Const
      *                                  number which for one cannot calculate a valid checksum.
      */
     public static Kontonummer getAndForceValidKontonummer(String kontonummer) {
-        validateSyntax(kontonummer);
-        try {
-            validateChecksum(kontonummer);
-        } catch (IllegalArgumentException iae) {
-            Kontonummer k = new Kontonummer(kontonummer);
-            int checksum = calculateMod11CheckSum(getMod11Weights(k), k);
-            kontonummer = kontonummer.substring(0, LENGTH - 1) + checksum;
-        }
-        return new Kontonummer(kontonummer);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     static void validateSyntax(String kontonummer) {
-        if (kontonummer.startsWith(NOT_ALLOWED_AS_LEADING)) {
-            throw new IllegalArgumentException(ERROR_LEADING_ZEROS + kontonummer);
-        }
-        validateLengthAndAllDigits(kontonummer, LENGTH);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     static void validateAccountTypeSyntax(String accountType) {
-        validateLengthAndAllDigits(accountType, ACCOUNTTYPE_NUM_DIGITS);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     static void validateRegisternummerSyntax(String registernummer) {
-        validateLengthAndAllDigits(registernummer, REGISTERNUMMER_NUM_DIGITS);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     static void validateChecksum(String kontonummer) {
-        Kontonummer k = new Kontonummer(kontonummer);
-        int k1 = calculateMod11CheckSum(getMod11Weights(k), k);
-        if (k1 != k.getChecksumDigit()) {
-            throw new IllegalArgumentException(ERROR_INVALID_CHECKSUM + kontonummer);
-        }
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public void initialize(no.bekk.bekkopen.banking.annotation.Kontonummer constraintAnnotation) {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public boolean isValid(String kontonummer, ConstraintValidatorContext context) {
-        if(kontonummer == null){
-            return true;
-        }
-
-        return isValid(kontonummer);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }
